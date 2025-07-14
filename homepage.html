@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cypher AI — Autonomous Trading Intelligence</title>
+  <style>
+    /* Base Reset and Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    body {
+      margin: 0;
+      background-color: #0a0a0a;
+      color: #f0f0f0;
+      font-family: 'Poppins', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a {
+      color: #f0a500;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Container */
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      font-weight: 600;
+      font-size: 2rem;
+      color: #f0a500;
+      letter-spacing: 1.2px;
+      margin: 0;
+    }
+    header nav a {
+      margin-left: 1.5rem;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    /* Profile Section */
+    .profile {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+      gap: 1.5rem;
+    }
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #222;
+      background-image: url('https://avatars.githubusercontent.com/u/00000000?v=4'); /* Replace with your image */
+      background-size: cover;
+      background-position: center;
+      border: 2px solid #f0a500;
+    }
+    .profile-info {
+      flex-grow: 1;
+    }
+    .profile-info h2 {
+      margin: 0 0 0.25rem;
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #f0a500;
+    }
+    .profile-info p {
+      margin: 0;
+      font-weight: 400;
+      color: #bbb;
+    }
+
+    /* Stats Section */
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      background: #111;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+    .stat {
+      text-align: center;
+      flex: 1;
+      border-right: 1px solid #333;
+    }
+    .stat:last-child {
+      border-right: none;
+    }
+    .stat-number {
+      font-size: 1.5rem;
+      color: #f0a500;
+      margin-bottom: 0.25rem;
+    }
+    .stat-label {
+      font-size: 0.875rem;
+      color: #bbb;
+    }
+
+    /* Bubble Map Section */
+    .bubble-map {
+      background: #111;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 2rem;
+    }
+    .bubble-map h3 {
+      font-weight: 600;
+      margin-top: 0;
+      color: #f0a500;
+      margin-bottom: 1rem;
+    }
+    .bubble-map img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    /* Holder Info Section */
+    .holders-info {
+      background: #111;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 2rem;
+    }
+    .holders-info h3 {
+      font-weight: 600;
+      color: #f0a500;
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+    .holders-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    .holders-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #222;
+      font-weight: 500;
+    }
+    .holders-list li:last-child {
+      border-bottom: none;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 0.875rem;
+      color: #444;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Cypher AI</h1>
+      <nav>
+        <a href="#bubble-map">Bubble Map</a>
+        <a href="#holders">Holders</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="profile">
+      <div class="avatar"></div>
+      <div class="profile-info">
+        <h2>Autonomous Trading Intelligence</h2>
+        <p>Next-generation AI-driven trading terminal with deep on-chain & social insights.</p>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat">
+        <div class="stat-number">10M+</div>
+        <div class="stat-label">Wallets with Idle Assets</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">3M+</div>
+        <div class="stat-label">Daily Active Traders</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">$4B+</div>
+        <div class="stat-label">Solana DeFi TVL</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">$50M+</div>
+        <div class="stat-label">Daily Trading Volume</div>
+      </div>
+    </section>
+
+    <section id="bubble-map" class="bubble-map">
+      <h3>Token Bubble Map</h3>
+      <img src="https://via.placeholder.com/900x400.png?text=Bubble+Map+Visualization" alt="Token Bubble Map Visualization" />
+    </section>
+
+    <section id="holders" class="holders-info">
+      <h3>Top Holders & Wallet Insights</h3>
+      <ul class="holders-list">
+        <li>Holder 1 — 15% (KOL Wallet)</li>
+        <li>Holder 2 — 12% (Verified Investor)</li>
+        <li>Holder 3 — 8% (Deployer)</li>
+        <li>Holder 4 — 5% (Community)</li>
+        <li>Holder 5 — 3% (Exchange)</li>
+      </ul>
+    </section>
+
+    <footer id="contact">
+      &copy; 2025 Cypher AI. All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>
