@@ -3,21 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cypher — Data Driven Trading Intelligence, For The Traders That Love Money</title>
+  <title>Cypher AI — Autonomous Trading Intelligence</title>
+
   <style>
-    /* Base Reset and Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-    body {
+    /* Nulshock font-face - adjust path if needed */
+    @font-face {
+      font-family: 'Nulshock';
+      src: url('./fonts/Nulshock.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Reset */
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    body {
       background-color: #0a0a0a;
       color: #f0f0f0;
-      font-family: 'Poppins', sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      font-family: 'Nulshock', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-weight: 400;
     }
+
     a {
-      color: #f0a500;
+      color: #0fa500;
       text-decoration: none;
+      font-weight: 600;
     }
     a:hover {
       text-decoration: underline;
@@ -25,205 +44,202 @@
 
     /* Container */
     .container {
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* Header */
     header {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      margin-bottom: 2rem;
-    }
-    header h1 {
-      font-weight: 600;
-      font-size: 2rem;
-      color: #f0a500;
-      letter-spacing: 1.2px;
-      margin: 0;
-    }
-    header nav a {
-      margin-left: 1.5rem;
-      font-weight: 500;
-      font-size: 1rem;
+      align-items: center;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid #111;
     }
 
-    /* Profile Section */
-    .profile {
-      display: flex;
-      align-items: center;
+    header img {
+      height: 42px;
+      cursor: pointer;
+    }
+
+    nav a {
+      margin-left: 2rem;
+      font-size: 1rem;
+      color: #f0f0f0;
+    }
+
+    nav a:hover {
+      color: #0fa500;
+    }
+
+    /* Hero Section */
+    .hero {
+      margin-top: 4rem;
+      text-align: center;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #0fa500;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: #ccc;
       margin-bottom: 2rem;
-      gap: 1.5rem;
     }
-    .avatar {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: #222;
-      background-image: url('https://avatars.githubusercontent.com/u/00000000?v=4'); /* Replace with your image */
-      background-size: cover;
-      background-position: center;
-      border: 2px solid #f0a500;
+
+    .btn-primary {
+      background-color: #0fa500;
+      color: #0a0a0a;
+      padding: 1.25rem 3rem;
+      font-weight: 700;
+      font-size: 1.125rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.25s ease;
     }
-    .profile-info {
-      flex-grow: 1;
-    }
-    .profile-info h2 {
-      margin: 0 0 0.25rem;
-      font-size: 1.75rem;
-      font-weight: 600;
-      color: #f0a500;
-    }
-    .profile-info p {
-      margin: 0;
-      font-weight: 400;
-      color: #bbb;
+    .btn-primary:hover {
+      background-color: #0c8700;
     }
 
     /* Stats Section */
     .stats {
       display: flex;
       justify-content: space-between;
-      background: #111;
-      padding: 1rem;
-      border-radius: 10px;
-      margin-bottom: 2rem;
-      font-weight: 600;
+      margin: 4rem 0 6rem;
+      background-color: #111;
+      padding: 2rem 2.5rem;
+      border-radius: 14px;
     }
-    .stat {
-      text-align: center;
+    .stat-item {
       flex: 1;
-      border-right: 1px solid #333;
+      text-align: center;
+      border-right: 1px solid #222;
     }
-    .stat:last-child {
+    .stat-item:last-child {
       border-right: none;
     }
     .stat-number {
-      font-size: 1.5rem;
-      color: #f0a500;
-      margin-bottom: 0.25rem;
+      font-size: 2rem;
+      color: #0fa500;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
     }
     .stat-label {
-      font-size: 0.875rem;
-      color: #bbb;
+      font-size: 1rem;
+      color: #aaa;
+      font-weight: 600;
     }
 
-    /* Bubble Map Section */
-    .bubble-map {
-      background: #111;
+    /* Content Section */
+    .content-section {
+      background-color: #111;
+      border-radius: 14px;
+      padding: 2rem 2.5rem;
+      margin-bottom: 4rem;
+    }
+    .content-section h2 {
+      color: #0fa500;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      font-size: 1.75rem;
+    }
+    .content-section img {
+      max-width: 100%;
       border-radius: 10px;
-      padding: 1rem;
-      margin-bottom: 2rem;
-    }
-    .bubble-map h3 {
-      font-weight: 600;
-      margin-top: 0;
-      color: #f0a500;
-      margin-bottom: 1rem;
-    }
-    .bubble-map img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    /* Holder Info Section */
-    .holders-info {
-      background: #111;
-      border-radius: 10px;
-      padding: 1rem;
-      margin-bottom: 2rem;
-    }
-    .holders-info h3 {
-      font-weight: 600;
-      color: #f0a500;
-      margin-top: 0;
-      margin-bottom: 1rem;
-    }
-    .holders-list {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-    }
-    .holders-list li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #222;
-      font-weight: 500;
-    }
-    .holders-list li:last-child {
-      border-bottom: none;
     }
 
     /* Footer */
     footer {
+      padding: 2rem 1.5rem;
       text-align: center;
-      font-size: 0.875rem;
-      color: #444;
-      margin-top: 3rem;
-      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+      border-top: 1px solid #111;
     }
 
+    /* Responsive */
+    @media (max-width: 768px) {
+      .stats {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .stat-item {
+        border: none;
+      }
+    }
   </style>
 </head>
 <body>
+
   <div class="container">
     <header>
-      <h1>Cypher AI</h1>
+      <img src="LogoWhite.png.jpg" alt="Cypher Logo" />
       <nav>
+        <a href="#stats">Stats</a>
         <a href="#bubble-map">Bubble Map</a>
         <a href="#holders">Holders</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
 
-    <section class="profile">
-      <div class="avatar"></div>
-      <div class="profile-info">
-        <h2>Autonomous Trading Intelligence</h2>
-        <p>Next-generation AI-driven trading terminal with deep on-chain & social insights.</p>
-      </div>
-    </section>
+    <main>
+      <section class="hero">
+        <h1>Autonomous Wealth. Reinvented.</h1>
+        <p>Next-generation AI-powered trading intelligence and portfolio management.</p>
+        <button class="btn-primary">Explore Cypher Demo</button>
+      </section>
 
-    <section class="stats">
-      <div class="stat">
-        <div class="stat-number">10M+</div>
-        <div class="stat-label">Wallets with Idle Assets</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">3M+</div>
-        <div class="stat-label">Daily Active Traders</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">$4B+</div>
-        <div class="stat-label">Solana DeFi TVL</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">$50M+</div>
-        <div class="stat-label">Daily Trading Volume</div>
-      </div>
-    </section>
+      <section id="stats" class="stats" aria-label="Key platform statistics">
+        <div class="stat-item">
+          <div class="stat-number">10M+</div>
+          <div class="stat-label">Wallets with Idle Assets</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">3M+</div>
+          <div class="stat-label">Daily Active Traders</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">$4B+</div>
+          <div class="stat-label">Solana DeFi TVL</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">$50M+</div>
+          <div class="stat-label">Daily Trading Volume</div>
+        </div>
+      </section>
 
-    <section id="bubble-map" class="bubble-map">
-      <h3>Token Bubble Map</h3>
-      <img src="https://via.placeholder.com/900x400.png?text=Bubble+Map+Visualization" alt="Token Bubble Map Visualization" />
-    </section>
+      <section id="bubble-map" class="content-section">
+        <h2>Token Bubble Map</h2>
+        <img src="https://via.placeholder.com/900x400.png?text=Bubble+Map+Visualization" alt="Token Bubble Map Visualization" />
+      </section>
 
-    <section id="holders" class="holders-info">
-      <h3>Top Holders & Wallet Insights</h3>
-      <ul class="holders-list">
-        <li>Holder 1 — 15% (KOL Wallet)</li>
-        <li>Holder 2 — 12% (Verified Investor)</li>
-        <li>Holder 3 — 8% (Deployer)</li>
-        <li>Holder 4 — 5% (Community)</li>
-        <li>Holder 5 — 3% (Exchange)</li>
-      </ul>
-    </section>
+      <section id="holders" class="content-section">
+        <h2>Top Holders & Wallet Insights</h2>
+        <ul>
+          <li>Holder 1 — 15% (KOL Wallet)</li>
+          <li>Holder 2 — 12% (Verified Investor)</li>
+          <li>Holder 3 — 8% (Deployer)</li>
+          <li>Holder 4 — 5% (Community)</li>
+          <li>Holder 5 — 3% (Exchange)</li>
+        </ul>
+      </section>
+    </main>
 
     <footer id="contact">
-      &copy; 2025 Cypher AI. All rights reserved.
+      &copy; 2025 Cypher. All rights reserved.
     </footer>
   </div>
+
 </body>
 </html>
