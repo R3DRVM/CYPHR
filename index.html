@@ -1,245 +1,430 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cypher AI — Autonomous Trading Intelligence</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cyphr - Data Powered Trading</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Nulshock font-face - adjust path if needed */
-    @font-face {
-      font-family: 'Nulshock';
-      src: url('./fonts/Nulshock.woff2') format('woff2');
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
+    :root {
+      --bg: #0b0b13;
+      --card: #13131c;
+      --border: #181824;
+      --white: #fff;
+      --gray: #c5c5e4;
+      --gradient: linear-gradient(90deg,#4ae9fd,#b781fa,#ffe8a0,#49e2c7,#91f5a1);
+      --btn-gradient: linear-gradient(90deg,#4ae9fd,#b781fa,#ffe8a0,#49e2c7,#91f5a1);
     }
-
-    /* Reset */
-    * {
-      box-sizing: border-box;
+    html, body {
       margin: 0;
       padding: 0;
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Montserrat', Arial, sans-serif;
+      min-height: 100%;
     }
-
     body {
-      background-color: #0a0a0a;
-      color: #f0f0f0;
-      font-family: 'Nulshock', sans-serif;
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      font-weight: 400;
+      overflow-x: hidden;
     }
-
-    a {
-      color: #0fa500;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* Container */
     .container {
-      max-width: 1080px;
+      width: 100%;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 0 1.5rem;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
+      padding: 0 36px;
     }
-
-    header {
+    /* Header */
+    .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 0;
-      border-bottom: 1px solid #111;
+      padding: 28px 0 10px 0;
     }
-
-    header img {
-      height: 42px;
-      cursor: pointer;
-    }
-
-    nav a {
-      margin-left: 2rem;
-      font-size: 1rem;
-      color: #f0f0f0;
-    }
-
-    nav a:hover {
-      color: #0fa500;
-    }
-
-    /* Hero Section */
-    .hero {
-      margin-top: 4rem;
-      text-align: center;
-      max-width: 720px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      color: #0fa500;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-      color: #ccc;
-      margin-bottom: 2rem;
-    }
-
-    .btn-primary {
-      background-color: #0fa500;
-      color: #0a0a0a;
-      padding: 1.25rem 3rem;
-      font-weight: 700;
-      font-size: 1.125rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.25s ease;
-    }
-    .btn-primary:hover {
-      background-color: #0c8700;
-    }
-
-    /* Stats Section */
-    .stats {
+    .header-left {
       display: flex;
-      justify-content: space-between;
-      margin: 4rem 0 6rem;
-      background-color: #111;
-      padding: 2rem 2.5rem;
-      border-radius: 14px;
+      align-items: center;
+      gap: 28px;
     }
-    .stat-item {
-      flex: 1;
-      text-align: center;
-      border-right: 1px solid #222;
-    }
-    .stat-item:last-child {
-      border-right: none;
-    }
-    .stat-number {
-      font-size: 2rem;
-      color: #0fa500;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    .stat-label {
-      font-size: 1rem;
-      color: #aaa;
-      font-weight: 600;
-    }
-
-    /* Content Section */
-    .content-section {
-      background-color: #111;
-      border-radius: 14px;
-      padding: 2rem 2.5rem;
-      margin-bottom: 4rem;
-    }
-    .content-section h2 {
-      color: #0fa500;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      font-size: 1.75rem;
-    }
-    .content-section img {
-      max-width: 100%;
+    .logo {
+      height: 32px;
+      width: 32px;
       border-radius: 10px;
+      background: var(--gradient);
+      display: inline-block;
+      margin-right: 14px;
     }
-
-    /* Footer */
-    footer {
-      padding: 2rem 1.5rem;
+    .header-link {
+      color: #9e9eca;
+      font-size: 1.05rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+      margin-right: 8px;
+    }
+    .header-link:hover {
+      color: #fff;
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .header-icon {
+      width: 25px;
+      opacity: 0.85;
+      margin-left: 8px;
+      filter: brightness(1.6);
+    }
+    /* Hero */
+    .hero-section {
       text-align: center;
-      font-size: 0.9rem;
-      color: #555;
-      border-top: 1px solid #111;
+      padding: 75px 0 48px 0;
+      background: radial-gradient(ellipse at 50% 40%, #2a2650 0%, transparent 70%);
+      position: relative;
     }
-
+    .hero-headline {
+      font-size: 2.8rem;
+      font-weight: 700;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 0.03em;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .hero-subheadline {
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 22px;
+    }
+    .hero-desc {
+      color: #9e9eca;
+      font-size: 1.08rem;
+      margin-bottom: 34px;
+    }
+    .connect-btn {
+      padding: 0.9rem 2.5rem;
+      border-radius: 2rem;
+      font-size: 1.22rem;
+      font-weight: 600;
+      border: 2px solid #9e9eca;
+      background: transparent;
+      color: #fff;
+      background-image: var(--btn-gradient);
+      background-size: 300% 100%;
+      background-position: 0 0;
+      transition: background-position 0.4s;
+      box-shadow: 0 2px 24px #55f2fa25;
+      margin-top: 18px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+    }
+    .connect-btn:hover {
+      background-position: 100% 0;
+      color: #161627;
+    }
+    .terms-text {
+      color: #6fa6de;
+      font-size: 0.97rem;
+      margin-top: 10px;
+    }
+    .hero-chart {
+      margin: 55px auto 0 auto;
+      max-width: 860px;
+      width: 95%;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 6px 48px #3dfcff16;
+      border: 1px solid #34345b;
+      background: var(--card);
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Feature Steps */
+    .features-section {
+      padding: 80px 0 10px 0;
+    }
+    .features-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 44px;
+      letter-spacing: 0.04em;
+    }
+    .feature-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: center;
+      margin-bottom: 75px;
+    }
+    .feature-step {
+      flex: 1;
+      min-width: 340px;
+      max-width: 500px;
+      background: none;
+      padding: 32px 12px 0 0;
+      margin: 0 20px 0 0;
+      text-align: left;
+    }
+    .feature-label {
+      color: #81fff5;
+      font-size: 0.92rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+    .feature-step-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 12px 0 16px 0;
+      color: #fff;
+      letter-spacing: 0.03em;
+    }
+    .feature-desc {
+      font-size: 1.07rem;
+      color: #b6b6cc;
+      margin-bottom: 26px;
+      line-height: 1.6;
+    }
+    .feature-card {
+      flex: 2;
+      max-width: 780px;
+      border-radius: 16px;
+      background: var(--card);
+      box-shadow: 0 3px 44px #23234c18;
+      border: 1px solid #23234c;
+      padding: 18px 0 18px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+    }
+    .feature-card img {
+      width: 96%;
+      max-width: 740px;
+      border-radius: 10px;
+      box-shadow: 0 0 24px #4747f433;
+    }
+    /* CTA Section */
+    .cta-section {
+      text-align: center;
+      padding: 90px 0 44px 0;
+      background: radial-gradient(ellipse at 50% 70%, #332e5a 0%, transparent 80%);
+    }
+    .cta-headline {
+      font-size: 2.3rem;
+      font-weight: 700;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 0.02em;
+      margin-bottom: 18px;
+    }
+    .footer {
+      color: #b0b0da;
+      font-size: 0.98rem;
+      text-align: center;
+      padding: 38px 0 16px 0;
+      border-top: 1px solid #252536;
+      margin-top: 16px;
+      letter-spacing: 0.05em;
+    }
     /* Responsive */
-    @media (max-width: 768px) {
-      .stats {
-        flex-direction: column;
-        gap: 1.5rem;
+    @media (max-width: 1200px) {
+      .container {
+        padding: 0 18px;
       }
-      .stat-item {
-        border: none;
+      .feature-row {
+        flex-direction: column;
+        gap: 38px;
+      }
+      .feature-step {
+        max-width: none;
+        padding: 0;
+        margin: 0 0 20px 0;
+      }
+      .feature-card {
+        max-width: none;
+        min-width: 0;
+      }
+    }
+    @media (max-width: 700px) {
+      .hero-headline, .cta-headline {
+        font-size: 1.5rem;
+      }
+      .hero-section, .cta-section {
+        padding: 40px 0 24px 0;
+      }
+      .features-section {
+        padding: 38px 0 10px 0;
+      }
+      .features-title {
+        font-size: 1.15rem;
+        margin-bottom: 18px;
       }
     }
   </style>
 </head>
 <body>
-
   <div class="container">
-    <header>
-      <img src="Logowhite.jpg" alt="Cypher Logo" />
-      <nav>
-        <a href="#stats">Stats</a>
-        <a href="#bubble-map">Bubble Map</a>
-        <a href="#holders">Holders</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
 
-    <main>
-      <section class="hero">
-        <h1>Data Driven Wealth. Reinvented.</h1>
-        <p>Next-generation Data-powered trading intelligence.</p>
-        <button class="btn-primary">Explore Cypher Demo</button>
-      </section>
+    <!-- Header -->
+    <div class="header">
+      <div class="header-left">
+        <img src="logo-white.png" alt="Cyphr Logo" class="logo" style="height:32px;width:32px;border-radius:10px;background:none;margin-right:14px;">
+        <a class="header-link" href="#">DOCUMENTATION</a>
+      </div>
+      <div class="header-right">
+        <span style="color: #16e6e6; font-weight: 700;">SOL</span>
+        <img class="header-icon" src="https://upload.wikimedia.org/wikipedia/en/b/b9/Solana_logo.png" alt="Solana" />
+        <img class="header-icon" src="https://cdn.simpleicons.org/x" alt="X" />
+        <img class="header-icon" src="https://cdn.simpleicons.org/telegram" alt="Telegram" />
+        <span style="font-weight:600;">EN</span>
+        <img class="header-icon" src="https://cdn.simpleicons.org/book" alt="Book" />
+      </div>
+    </div>
 
-      <section id="stats" class="stats" aria-label="Key platform statistics">
-        <div class="stat-item">
-          <div class="stat-number">10M+</div>
-          <div class="stat-label">Wallets with Idle Assets</div>
+    <!-- Hero -->
+    <div class="hero-section">
+      <div class="hero-headline">
+        DATA<span style="color:#7fffd4;"> </span>DRIVEN TRADING INTELLIGENCE<br>
+        <span style="font-weight:400; background: none; color: #fff;">DATA AGGREGATION FOR INFORMED TRADING</span>
+      </div>
+      <div class="hero-desc">
+        Connect to start trading <span style="color:#2ce7ff; font-weight:600;">SOL</span> now
+      </div>
+      <div class="hero-keypoints" style="max-width:700px;margin:24px auto 0 auto;color:#b6b6cc;font-size:1.08rem;line-height:1.7;text-align:center;">
+        Unlock real-time aggregated data dashboards with critical trade insights, holder distribution analysis, whale activity tracking, and pump & dump signal detection. Follow influential wallets and access actionable intelligence.<br><br>
+        <span style="color:#7fffd4;font-weight:600;">All in one place, make every trade with confidence.</span>
+      </div>
+      <button class="connect-btn">Connect Wallet</button>
+      <div class="terms-text">
+        <input type="checkbox" checked disabled style="accent-color:#8ef4fa;vertical-align:middle;"> By connecting, I agree to the <a href="#" style="color:#9fd0f9;">Terms & Privacy</a>
+      </div>
+      <div class="hero-chart">
+        <canvas id="hero-bubble-map" style="width:100%;height:340px;display:block;background:transparent;"></canvas>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="features-section">
+
+      <!-- Feature 1: Discover -->
+      <div class="feature-row">
+        <div class="feature-step">
+          <div class="feature-label">[ 01. ]</div>
+          <div class="feature-step-title">Discover</div>
+          <div class="feature-desc">
+            Discover new tokens and filter by data preferences.
+          </div>
+          <button class="connect-btn" style="font-size:1rem;">Connect</button>
         </div>
-        <div class="stat-item">
-          <div class="stat-number">3M+</div>
-          <div class="stat-label">Daily Active Traders</div>
+        <div class="feature-card">
+          <img src="discover.png" alt="Token Table">
         </div>
-        <div class="stat-item">
-          <div class="stat-number">$4B+</div>
-          <div class="stat-label">Solana DeFi TVL</div>
+      </div>
+
+      <!-- Feature 2: Monitor -->
+      <div class="feature-row">
+        <div class="feature-step">
+          <div class="feature-label">[ 02. ]</div>
+          <div class="feature-step-title">Monitor</div>
+          <div class="feature-desc">
+            Real-time trade insights & suggestions, easily monitor your portfolio at a glance.
+          </div>
+          <button class="connect-btn" style="font-size:1rem;">Connect</button>
         </div>
-        <div class="stat-item">
-          <div class="stat-number">$50M+</div>
-          <div class="stat-label">Daily Trading Volume</div>
+        <div class="feature-card">
+          <img src="chart.png" alt="Monitor Chart">
         </div>
-      </section>
+      </div>
 
-      <section id="bubble-map" class="content-section">
-        <h2>Token Bubble Map</h2>
-        <img src="bubblemap.png" alt="Token Bubble Map Visualization" />
-      </section>
+      <!-- Feature 3: Quick Buy and Sell -->
+      <div class="feature-row">
+        <div class="feature-step">
+          <div class="feature-label">[ 03. ]</div>
+          <div class="feature-step-title">Powerful Data Tools</div>
+          <div class="feature-desc">
+            Trade smarter with Cyphr with clear insights and speed advantage for every transaction.
+          </div>
+          <button class="connect-btn" style="font-size:1rem;">Connect</button>
+        </div>
+        <div class="feature-card">
+          <img src="bubblesmap.png" alt="Bubble Map">
+        </div>
+      </div>
+    </div>
 
-      <section id="holders" class="content-section">
-        <h2>Top Holders & Wallet Insights</h2>
-        <ul>
-          <li>Holder 1 — 15% (KOL Wallet)</li>
-          <li>Holder 2 — 12% (Verified Investor)</li>
-          <li>Holder 3 — 8% (Deployer)</li>
-          <li>Holder 4 — 5% (Community)</li>
-          <li>Holder 5 — 3% (Exchange)</li>
-        </ul>
-      </section>
-    </main>
+    <!-- Final CTA Section -->
+    <div class="cta-section">
+      <div class="cta-headline">
+        START TRADING IN LESS THAN 30 SECS
+      </div>
+      <button class="connect-btn">Connect Wallet</button>
+      <div class="terms-text">
+        <input type="checkbox" checked disabled style="accent-color:#8ef4fa;vertical-align:middle;"> By connecting, I agree to the <a href="#" style="color:#9fd0f9;">Terms & Privacy</a>
+      </div>
+    </div>
 
-    <footer id="contact">
-      &copy; 2025 Cypher. All rights reserved.
-    </footer>
+    <!-- Footer -->
+    <div class="footer">
+      &copy; Cyphr Labs. 2025 &nbsp; | &nbsp;
+      <a href="#">Terms of Use</a> &nbsp; | &nbsp;
+      <a href="#">Privacy Policy</a>
+    </div>
   </div>
-
+  <script>
+    // Hero Bubble Map Animation (purple theme)
+    const heroBubbleMap = document.getElementById('hero-bubble-map');
+    if (heroBubbleMap) {
+      function resizeHeroBubbleMap() {
+        // Set canvas size to match parent div
+        const parent = heroBubbleMap.parentElement;
+        heroBubbleMap.width = parent.offsetWidth;
+        heroBubbleMap.height = 340;
+      }
+      resizeHeroBubbleMap();
+      window.addEventListener('resize', resizeHeroBubbleMap);
+      const ctx = heroBubbleMap.getContext('2d');
+      // Bubble properties
+      const BUBBLE_COUNT = 28;
+      const bubbles = Array.from({length: BUBBLE_COUNT}, () => ({
+        x: Math.random() * heroBubbleMap.width,
+        y: Math.random() * heroBubbleMap.height,
+        r: 24 + Math.random() * 38,
+        dx: (Math.random() - 0.5) * 0.7,
+        dy: (Math.random() - 0.5) * 0.7,
+        color: `rgba(${120+Math.floor(Math.random()*40)},${60+Math.floor(Math.random()*30)},${180+Math.floor(Math.random()*60)},${0.18 + Math.random() * 0.22})`
+      }));
+      function animateBubbles() {
+        ctx.clearRect(0, 0, heroBubbleMap.width, heroBubbleMap.height);
+        for (const b of bubbles) {
+          ctx.beginPath();
+          ctx.arc(b.x, b.y, b.r, 0, 2 * Math.PI);
+          ctx.fillStyle = b.color;
+          ctx.shadowColor = '#b781fa';
+          ctx.shadowBlur = 32;
+          ctx.fill();
+          ctx.shadowBlur = 0;
+          // Move
+          b.x += b.dx;
+          b.y += b.dy;
+          // Bounce
+          if (b.x - b.r < 0 || b.x + b.r > heroBubbleMap.width) b.dx *= -1;
+          if (b.y - b.r < 0 || b.y + b.r > heroBubbleMap.height) b.dy *= -1;
+        }
+        requestAnimationFrame(animateBubbles);
+      }
+      animateBubbles();
+    }
+  </script>
 </body>
 </html>
